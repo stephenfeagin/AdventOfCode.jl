@@ -48,6 +48,24 @@ Fortunately, your list has an even number of elements.
 We work out half the distance around the circular list (which is assumed to
 have even length). If the current index + half is greater than the length of
 the string, then take index + half mod length(input).
+
+# Examples
+```julia-repl
+julia> part2("1212")
+4
+
+julia> part2("1221")
+0
+
+julia> part2("123425")
+4
+
+julia> part2("123123")
+12
+
+julia> part2("12131415")
+4
+```
 """
 function part2(input)
     result = 0
