@@ -1,8 +1,5 @@
 # 2018 Day 3: No Matter How You Slice It
 
-const FNAME = "input/day_03.txt"
-const RAWFILE = readlines(FNAME)
-const SIDE = 1000
 
 struct Claim
     id::Int
@@ -17,7 +14,6 @@ function parse_input(item)
     Claim(item_parsed...)
 end
 
-const claims = map(x -> parse_input(x), RAWFILE)
 
 function tallysquares(claims::Array{Claim}, side::Int)
     results = zeros(Int, side, side)
@@ -44,7 +40,3 @@ function part2(claims::Array{Claim}, squares::Array{Int, 2})
     end
 end
 
-squarecounts = tallysquares(claims, SIDE)
-
-println(part1(squarecounts))
-println(part2(claims, squarecounts))
