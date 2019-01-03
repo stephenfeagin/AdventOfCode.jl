@@ -21,19 +21,18 @@ end
 function part_2(input)
     results = Dict()
     for word in input
-        println("Word: ", word)
-        for idx in 1:length(word)
-            println("results[$idx]: ", get(results, idx, []))
+        for idx in 1:lastindex(word)
             if idx == 1
                 new_word = word[2:end]
+            elseif idx == lastindex(word)
+                new_word = word[1:end-1]
             else
                 new_word = word[1:idx-1] * word[idx+1:end]
             end
-            println("New word: ", new_word)
             if new_word in get(results, idx, [])
                 return new_word
             else
-                results[idx] = append!(get(results, idx, []::Array{String, 1}), new_word)
+                push!(get!(results, idx, []), new_word)
             end
         end
     end
